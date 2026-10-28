@@ -39,7 +39,7 @@ body::before { background: radial-gradient(60% 38% at 50% 0%, rgba(110, 36, 48, 
 .lt-h2 { margin-top: 16px; font-size: clamp(1.8rem, 4.4vw, 3rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; color: var(--ink); text-wrap: balance; }
 .lt-h2 em { font-style: normal; color: var(--accent-text); }
 .lt-sub { margin-top: 12px; color: var(--muted); font-size: 1rem; }
-.lt-learn, .lt-numbers, .lt-cases, .lt-wins, .lt-faq { margin-top: clamp(64px, 10vh, 110px); }
+.lt-learn, .lt-offer, .lt-numbers, .lt-cases, .lt-wins, .lt-faq { margin-top: clamp(64px, 10vh, 110px); }
 .lt-learn__grid { margin: 30px auto 0; max-width: 980px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; }
 .lt-learn__grid article { padding: 26px 24px; border-radius: 18px; background: var(--surface); border: 1px solid var(--hair); box-shadow: 0 0 40px -20px rgba(110, 36, 48,.5); }
 .lt-learn__grid span { font-size: .8rem; font-weight: 800; letter-spacing: .2em; color: var(--accent-text); }
