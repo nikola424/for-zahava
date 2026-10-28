@@ -1,0 +1,76 @@
+/* =========================================================================
+   Ad creative scripts — deliverable page. A clean paid-social script library.
+   Background canvas, .container, .reveal come from ../vsl/vsl.css.
+   ========================================================================= */
+.ads { position: relative; overflow: hidden; padding: clamp(52px, 8vh, 104px) 0 clamp(56px, 9vh, 104px); }
+.ads .container { position: relative; z-index: 1; max-width: 760px; }
+
+.ads__glow {
+  position: absolute; top: clamp(-30px, 2vw, 40px); left: 50%; transform: translateX(-50%);
+  width: min(880px, 118vw); height: 460px; z-index: 0; pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(110, 36, 48, 0.16), rgba(110, 36, 48, 0) 70%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ads__glow { animation: adsBreathe 9s var(--ease) infinite alternate; will-change: transform, opacity; }
+}
+@keyframes adsBreathe { from { opacity: .7; transform: translateX(-50%) scale(.95); } to { opacity: 1; transform: translateX(-50%) scale(1.08); } }
+
+/* --- intro --- */
+.ads__intro { text-align: center; max-width: 640px; margin: 0 auto clamp(40px, 6vw, 62px); }
+.ads__eyebrow { margin: 0 0 14px; font-family: var(--sans); font-size: .78rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--accent-text); }
+.ads__title { margin: 0 0 16px; font-family: var(--display); font-weight: 500;
+  font-size: clamp(2rem, 1.3rem + 2.8vw, 3rem); line-height: 1.05; letter-spacing: -.02em; color: var(--ink); }
+.ads__sub { margin: 0; font-family: var(--sans); font-size: 1.02rem; line-height: 1.55; color: var(--muted); }
+
+/* --- list --- */
+.ads__list { display: flex; flex-direction: column; gap: clamp(20px, 2.6vw, 28px); }
+
+/* --- ad card --- */
+.ad { position: relative; background: var(--surface); border: 1px solid rgba(110, 36, 48, 0.16);
+  border-radius: 18px; padding: clamp(24px, 3.2vw, 36px); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34); }
+.ad__head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; flex-wrap: wrap; }
+.ad__num { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%;
+  border: 1px solid rgba(110, 36, 48,.4); font-family: var(--display); font-weight: 500; font-size: .9rem; color: var(--accent-text); }
+.ad__title { margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(1.25rem, 1rem + .9vw, 1.55rem);
+  line-height: 1.15; letter-spacing: -.01em; color: var(--ink); }
+.ad__angle { margin-left: auto; font-family: var(--sans); font-size: .66rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent-text); padding: 6px 12px; border: 1px solid rgba(110, 36, 48,.35);
+  background: rgba(110, 36, 48,.1); border-radius: 999px; white-space: nowrap; }
+.ad__target { margin: 4px 0 20px; padding-left: 52px; font-family: var(--sans); font-size: .84rem; color: var(--muted); }
+.ad__target b { color: var(--accent-text); font-weight: 700; }
+
+.ad__label { display: block; font-family: var(--sans); font-size: .66rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted); margin: 22px 0 12px; }
+.ad__body p { margin: 0 0 12px; font-family: var(--sans); font-size: 1.02rem; line-height: 1.7; color: #4a3a33; }
+.ad__body p:last-child { margin-bottom: 0; }
+.ad__body em { font-style: normal; color: var(--ink); font-weight: 700; }
+
+/* CTA block inside the card */
+.ad__cta { margin-top: 22px; display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 18px; border-radius: 12px; border: 1px solid rgba(110, 36, 48,.3); background: rgba(110, 36, 48,.08); }
+.ad__cta-icon { flex: none; width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center;
+  background: rgba(110, 36, 48,.16); border: 1px solid rgba(110, 36, 48,.35); margin-top: 2px; }
+.ad__cta-icon svg { width: 17px; height: 17px; stroke: var(--accent-text); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ad__cta-label { display: block; font-family: var(--sans); font-size: .62rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent-text); margin-bottom: 4px; }
+.ad__cta-text { margin: 0; font-family: var(--sans); font-size: 1rem; line-height: 1.5; color: var(--ink); }
+
+@media (max-width: 600px) {
+  .ads .container { max-width: 480px; }
+  .ad__angle { margin-left: 0; }
+  .ad__target { padding-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .ads__glow { animation: none; } }
+
+/* ---- mobile hardening (references/mobile.md) ---- */
+img, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+p, li, td, th, blockquote, figcaption,
+h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
+table, pre { display: block; max-width: 100%; overflow-x: auto; }
+@media (max-width: 700px) {
+  .tag, [class*="badge"], [class*="pill"] { margin-left: 0; }
+}
+@media (max-width: 420px) {
+  .tok-merge, .tok-link, code { white-space: normal; }
+}

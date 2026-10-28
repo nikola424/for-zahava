@@ -1,0 +1,88 @@
+/* =========================================================================
+   VSL Script — deliverable page. A premium, readable script document.
+   Background canvas, .container, .reveal come from ../vsl/vsl.css.
+   ========================================================================= */
+.script { position: relative; overflow: hidden; padding: clamp(52px, 8vh, 104px) 0 clamp(60px, 9vh, 110px); }
+.script .container { position: relative; z-index: 1; max-width: 720px; }
+
+.script__glow {
+  position: absolute; top: clamp(-30px, 2vw, 40px); left: 50%; transform: translateX(-50%);
+  width: min(880px, 118vw); height: 460px; z-index: 0; pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(110, 36, 48, 0.16), rgba(110, 36, 48, 0) 70%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .script__glow { animation: scrBreathe 9s var(--ease) infinite alternate; will-change: transform, opacity; }
+}
+@keyframes scrBreathe { from { opacity: .7; transform: translateX(-50%) scale(.95); } to { opacity: 1; transform: translateX(-50%) scale(1.08); } }
+
+/* --- intro --- */
+.script__intro { text-align: center; max-width: 640px; margin: 0 auto clamp(40px, 6vw, 64px); }
+.script__eyebrow { margin: 0 0 16px; font-family: var(--sans); font-size: .78rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--accent-text); }
+.script__title { margin: 0 0 18px; font-family: var(--display); font-weight: 500;
+  font-size: clamp(2.2rem, 1.4rem + 3vw, 3.4rem); line-height: 1.04; letter-spacing: -.02em; color: var(--ink); }
+.script__meta { display: inline-flex; align-items: center; gap: 12px; margin: 0;
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.script__meta b { color: var(--accent-text); font-weight: 700; }
+.script__meta .dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(110, 36, 48,.5); }
+
+/* --- section --- */
+.script .sec { position: relative; padding: clamp(34px, 5vw, 52px) 0; border-top: 1px solid var(--hair); }
+.script .sec__head { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
+.sec__num { flex: none; font-family: var(--display); font-style: italic; font-weight: 500; font-size: .95rem; color: var(--accent-text);
+  width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(110, 36, 48,.4);
+  border-radius: 50%; letter-spacing: .02em; }
+.script .sec__title { margin: 0; font-family: var(--display); font-weight: 600; letter-spacing: -.01em;
+  font-size: clamp(1.5rem, 1.15rem + 1.5vw, 2rem); line-height: 1.1; color: var(--ink); }
+
+.script .sec__body p { font-family: var(--sans); font-size: 1.07rem; line-height: 1.75; color: #4a3a33; margin: 0 0 15px; }
+.sec__body p:last-child { margin-bottom: 0; }
+.sec__body em { font-style: normal; color: var(--ink); font-weight: 700; }
+
+/* standout mechanism word */
+.standout { font-family: var(--display) !important; font-weight: 600; letter-spacing: -.01em;
+  font-size: clamp(2rem, 1.4rem + 2vw, 2.8rem) !important; line-height: 1.05 !important; color: var(--accent-text) !important;
+  margin: 6px 0 22px !important; }
+
+/* the three layers */
+.layer { margin: 30px 0 6px; padding-left: 20px; border-left: 2px solid rgba(110, 36, 48,.55); }
+.layer__k { display: block; font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent-text); margin-bottom: 6px; }
+.layer__t { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.3rem; color: var(--ink); letter-spacing: -.01em; }
+
+/* on-screen cue */
+.cue { display: flex; align-items: center; gap: 14px; margin: 24px 0; padding: 14px 18px;
+  border: 1px solid rgba(110, 36, 48,.3); background: rgba(110, 36, 48,.08); border-radius: 12px; }
+.cue__icon { flex: none; width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center;
+  background: rgba(110, 36, 48,.16); border: 1px solid rgba(110, 36, 48,.35); }
+.cue__icon svg { width: 18px; height: 18px; stroke: var(--accent-text); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cue__label { display: block; font-family: var(--sans); font-size: .64rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent-text); margin-bottom: 3px; }
+.cue__text { margin: 0; font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--ink); }
+
+/* end marker */
+.script__end { text-align: center; margin-top: clamp(40px, 6vw, 64px); }
+.script__end span { display: inline-block; font-family: var(--sans); font-size: .74rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
+  padding: 10px 20px; border: 1px solid var(--hair); border-radius: 999px; }
+
+@media (max-width: 600px) {
+  .script .container { max-width: 480px; }
+  .sec__num { width: 34px; height: 34px; font-size: .85rem; }
+}
+@media (prefers-reduced-motion: reduce) { .script__glow { animation: none; } }
+
+/* ---- mobile hardening (references/mobile.md) ---- */
+img, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+p, li, td, th, blockquote, figcaption,
+h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
+table, pre { display: block; max-width: 100%; overflow-x: auto; }
+@media (max-width: 700px) {
+  .tag, [class*="badge"], [class*="pill"] { margin-left: 0; }
+}
+@media (max-width: 420px) {
+  .tok-merge, .tok-link, code { white-space: normal; }
+}
+
+.script .sec__body p.rule { margin: 22px 0; padding: 16px 20px; border-left: 2px solid var(--accent-text); font-family: var(--display); font-size: 1.3rem; line-height: 1.35; color: var(--ink); background: rgba(110, 36, 48,.06); border-radius: 0 12px 12px 0; }
+.script .standout { display: block; }
